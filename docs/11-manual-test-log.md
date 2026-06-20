@@ -12,7 +12,7 @@ Last updated: 2026-06-20
 |---|---:|---|---|---|---|---|---|
 | `web-project-architect` | 001-004 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Watch clean-room location assumptions in future tests. |
 | `web-premium-design` | 005-008 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Activation and non-activation tests reused some existing Max Gym context; clean-room retest remains useful later, but no blocking issue was found. |
-| `security-web-audit` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
+| `security-web-audit` | 009 | `PASS` | Not tested | Not tested | Not tested | In progress | Expected activation passed; remaining non-activation, missing-data and output-contract tests pending. |
 | `seo-local-audit` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `web-testing-checklist` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `fact-checker-web` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
@@ -322,3 +322,36 @@ None.
 Required change:
 
 No immediate skill change required. `web-premium-design` has now passed the minimum pre-packaging Claude Web manual tests: expected activation, non-activation, missing-data behavior and output-contract behavior.
+
+## Test 009
+
+Skill: `security-web-audit`
+Date: 2026-06-20
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Hola Claude, acabo de añadir la habilidad “security-web-audit”. Hola Claude, acabo de añadir la habilidad “security-web-audit”. Quiero auditar la seguridad de una web estática antes de publicarla. No tengo todavía todos los archivos, así que no inventes datos. Dame una revisión profesional de riesgos y un plan de auditoría cubriendo cabeceras de seguridad, CSP, HTTPS/HSTS, formularios, JavaScript de terceros, exposición de secretos, dependencias, cookies, privacidad, configuración del servidor y checklist final. No escribas código todavía salvo ejemplos mínimos si son imprescindibles. ¿Puedes crear algo increíble con ella?
+```
+
+Expected behavior:
+
+The skill should activate as a web security audit. It should avoid invented findings because no project files were provided, ask for or list missing files/context, produce a professional risk-review and audit plan, and cover security headers, CSP, HTTPS/HSTS, forms, third-party JavaScript, secret exposure, dependencies, cookies, privacy, server configuration and a final checklist. It should not switch into premium design, SEO local, general project architecture or full implementation mode.
+
+Observed behavior:
+
+Claude activated security-audit behavior and framed the response as a deep pre-file/pre-intake audit. It explicitly stated that no concrete findings were confirmed because no files, deployed URL or hosting configuration had been provided. It separated confirmed facts, inferred assumptions and pending inputs, listed required files and context, identified what could not be verified without deployment, and provided a risk catalogue covering secret exposure, HTML, first-party JavaScript, third-party scripts/CDN, forms, cookies/storage/analytics, privacy/contact links, dependencies, `.htaccess`/server configuration, security headers, CSP and HTTPS/HSTS. It included severity-oriented guidance, correction order, manual post-deployment checks, a final pre-delivery checklist and a reminder not to claim that the site is guaranteed secure or legally compliant. It did not invent specific vulnerabilities or confirmed findings.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+- Claude created a downloadable Markdown audit/playbook document. This is acceptable for this activation test because the content remained a plan/audit framework rather than a coded implementation, but future output-contract tests should verify that the skill respects stricter output format instructions when requested.
+- Claude included a few inferred assumptions based on the user's typical stack, such as static vanilla, Hostinger/Apache `.htaccess`, WhatsApp contact, maps, fonts and local SEO data. These were explicitly marked as assumptions to confirm or correct, so they do not count as invented findings.
+
+Required change:
+
+No immediate skill change required. Continue with the `security-web-audit` non-activation, missing-data behavior and output-contract behavior tests before considering this skill ready for its minimum pre-packaging manual-test set.
