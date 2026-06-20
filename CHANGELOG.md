@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning for public behavior of skills.
 
+## [0.1.2] - 2026-06-20
+
+### Added
+
+- Added `security-web-audit` skill.
+- Added security baseline, headers/CSP, privacy/cookies, output contract and severity references.
+- Added security examples and activation tests.
+- Updated README to include the implemented security skill.
+
+### Notes
+
+`security-web-audit` is experimental and focused on static website security, privacy, hosting configuration, headers, CSP, forms, cookies and delivery risks. It is not a penetration test or legal compliance certificate.
+
 ## [0.1.1] - 2026-06-20
 
 ### Added
