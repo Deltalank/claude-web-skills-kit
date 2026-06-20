@@ -4,33 +4,28 @@ Professional Claude Skills kit for web planning, design, SEO, security, testing 
 
 ## Status
 
-Version: `0.1.0`
+Version: `0.1.5`
 Status: `experimental / professional draft`
 Primary language: Spanish
 Target platform: Claude Web first, Claude Code later.
 
 ## Purpose
 
-This repository contains a professional suite of Claude Skills designed to help create, audit, improve and deliver websites using AI with a structured, secure and verifiable workflow.
+This repository contains a suite of focused Claude Skills for creating, reviewing and delivering website projects with structured workflows.
 
 The goal is not to collect generic prompts. The goal is to create reusable, documented and testable skills that help Claude work like a disciplined web project assistant.
 
 ## Implemented skills
 
-1. `web-project-architect` — plans professional website projects before design, code, SEO, security or delivery.
-2. `web-premium-design` — creates distinctive visual direction, UX structure and conversion-focused layout for premium websites.
-3. `security-web-audit` — reviews static websites and simple web projects for security, privacy and configuration risks.
-4. `seo-local-audit` — reviews local SEO, metadata, schema, Google Business Profile alignment and local conversion signals.
-5. `web-testing-checklist` — validates websites before publishing or client delivery with final QA, responsive checks, links, contact actions and handoff checks.
+1. `web-project-architect` — plans website projects before design, code, SEO, security or delivery.
+2. `web-premium-design` — creates visual direction, UX structure and conversion-focused layouts.
+3. `security-web-audit` — reviews website security, privacy and configuration risks.
+4. `seo-local-audit` — reviews local SEO, metadata, schema and local business signals.
+5. `web-testing-checklist` — validates websites before publishing or client delivery.
+6. `fact-checker-web` — separates confirmed facts, assumptions, missing data and source-required claims.
+7. `token-budget-controller` — controls context size, output length, file priority and phased workflows.
 
-## Planned skills
-
-- `fact-checker-web` — separates confirmed facts, uncertain assumptions and claims requiring sources.
-- `token-budget-controller` — reduces unnecessary context usage, repeated instructions and large uncontrolled outputs.
-
-## First release focus
-
-Implemented skills:
+## Skill folders
 
 ```text
 skills/web-project-architect/
@@ -38,16 +33,15 @@ skills/web-premium-design/
 skills/security-web-audit/
 skills/seo-local-audit/
 skills/web-testing-checklist/
+skills/fact-checker-web/
+skills/token-budget-controller/
 ```
-
-Together, these skills cover project planning, premium design direction, security and privacy review, local SEO review and final delivery validation.
 
 ## Repository philosophy
 
 - Small focused skills are better than one oversized skill.
 - Every skill must define when it should and should not be used.
 - Every skill must separate confirmed facts, inferred assumptions and missing data.
-- No skill may invent client data, legal data, reviews, prices, owners, SEO claims or guaranteed results.
 - Every skill must include quality gates.
 - Every skill must be documented, tested and versioned.
 - Every skill must avoid unnecessary context usage.
@@ -71,18 +65,6 @@ Package a skill as a ZIP file and upload it in Claude Web:
 Claude → Personalizar → Skills → + → Cargar una habilidad
 ```
 
-The ZIP should contain the skill folder as the root folder.
-
-Implemented skill folders:
-
-```text
-skills/web-project-architect/
-skills/web-premium-design/
-skills/security-web-audit/
-skills/seo-local-audit/
-skills/web-testing-checklist/
-```
-
 Each skill follows this structure:
 
 ```text
@@ -94,9 +76,22 @@ Each skill follows this structure:
 └── tests/
 ```
 
+## Validation
+
+Before publishing a skill, review:
+
+- folder structure
+- frontmatter in `SKILL.md`
+- trigger tests
+- non-trigger tests
+- examples
+- references
+- output contract
+- changelog entry
+
 ## Safety notice
 
-This repository does not provide legal advice, security guarantees, ranking guarantees, sales guarantees or proof that a website is safe. It provides structured workflows and review checklists that still require human judgment.
+This repository provides structured workflows and review checklists. It does not replace human review before using the output in real client projects.
 
 ## License
 
