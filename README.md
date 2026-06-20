@@ -15,15 +15,18 @@ This repository contains a professional suite of Claude Skills designed to help 
 
 The goal is not to collect generic prompts. The goal is to create reusable, documented and testable skills that help Claude work like a disciplined web project assistant.
 
-## Initial skill suite
+## Implemented skills
 
 1. `web-project-architect` — plans professional website projects before design, code, SEO, security or delivery.
-2. `web-premium-design` — creates visual direction, UX structure and conversion-focused layout for premium websites.
-3. `security-web-audit` — reviews static websites and simple web projects for security, privacy and configuration risks.
-4. `seo-local-audit` — reviews local SEO, metadata, schema and local conversion signals.
-5. `web-testing-checklist` — guides validation before delivering a website.
-6. `fact-checker-web` — separates confirmed facts, uncertain assumptions and claims requiring sources.
-7. `token-budget-controller` — reduces unnecessary context usage, repeated instructions and large uncontrolled outputs.
+2. `web-premium-design` — creates distinctive visual direction, UX structure and conversion-focused layout for premium websites.
+
+## Planned skills
+
+- `security-web-audit` — reviews static websites and simple web projects for security, privacy and configuration risks.
+- `seo-local-audit` — reviews local SEO, metadata, schema and local conversion signals.
+- `web-testing-checklist` — guides validation before delivering a website.
+- `fact-checker-web` — separates confirmed facts, uncertain assumptions and claims requiring sources.
+- `token-budget-controller` — reduces unnecessary context usage, repeated instructions and large uncontrolled outputs.
 
 ## First release focus
 
@@ -33,7 +36,13 @@ The first implemented skill is:
 skills/web-project-architect/
 ```
 
-This skill acts as the project director. It turns vague website requests into structured project plans before visual design, coding, SEO, security, testing or client delivery.
+The second implemented skill is:
+
+```text
+skills/web-premium-design/
+```
+
+Together, these skills cover project planning and premium design direction before code, SEO, security, testing or client delivery.
 
 ## Repository philosophy
 
@@ -69,6 +78,16 @@ The ZIP should contain the skill folder as the root folder:
 ```text
 web-project-architect.zip
 └── web-project-architect/
+    ├── SKILL.md
+    ├── README.md
+    ├── references/
+    ├── examples/
+    └── tests/
+```
+
+```text
+web-premium-design.zip
+└── web-premium-design/
     ├── SKILL.md
     ├── README.md
     ├── references/
