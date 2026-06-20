@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning for public behavior of skills.
 
+## [0.1.3] - 2026-06-20
+
+### Added
+
+- Added `seo-local-audit` skill.
+- Added local SEO baseline, metadata/headings, schema, Google Business Profile alignment and output contract references.
+- Added local SEO examples and activation tests.
+- Updated README to include the implemented local SEO skill.
+
+### Notes
+
+`seo-local-audit` is experimental and focused on local-business SEO, metadata, schema, NAP consistency, Google Business Profile alignment, sitemap/robots review and honest claim handling. It does not guarantee rankings, traffic, leads or revenue.
+
 ## [0.1.2] - 2026-06-20
 
 ### Added
