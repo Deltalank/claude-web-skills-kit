@@ -111,3 +111,35 @@ None.
 Required change:
 
 No change required for this non-activation test.
+
+## Test 003
+
+Skill: `web-project-architect`
+Date: 2026-06-20
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Quiero crear una web para un negocio local, pero todavía no tengo nombre, ubicación, fotos, horarios ni precios. Haz el plan sin inventar nada.
+```
+
+Expected behavior:
+
+The skill should activate and produce a plan that does not invent missing business information. It should mark missing fields clearly, use placeholders, identify what can still be planned, and explain what is blocked until the user confirms details.
+
+Observed behavior:
+
+Claude activated the project-architect behavior and produced a skeleton plan. It explicitly stated that there were no confirmed details and that it would not invent name, business type, location, photos, opening hours or prices. It separated confirmed data, inferred assumptions and missing content, used placeholders such as `[NOMBRE]`, `[TIPO DE NEGOCIO]`, `[UBICACIÓN]`, `[HORARIOS]`, `[PRECIOS]`, `[FOTOS]`, `[CONTACTO/WHATSAPP]`, `[RESEÑAS verificables]` and `[DATOS LEGALES]`, explained that the business type is the most important missing field, and provided safe next-step intake questions.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+- Minor note: the response inferred Spain/Canarias and RGPD applicability. This is acceptable for this user's context, but in a clean external test this should remain clearly marked as inferred unless the location is confirmed.
+
+Required change:
+
+No immediate change required. Continue with output-contract behavior test before packaging.
