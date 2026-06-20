@@ -10,6 +10,17 @@ REQUIRED_FILES = ["SKILL.md", "README.md"]
 REQUIRED_TESTS = ["should-trigger.md", "should-not-trigger.md", "regression-prompts.md"]
 
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
+FRONTMATTER_FIELD_RE = re.compile(r"^(name|description):\s*(.+)$", re.MULTILINE)
+
+
+def parse_frontmatter(text: str) -> dict[str, str] | None:
+    match = FRONTMATTER_RE.match(text)
+    if not match:
+        return None
+    fields: dict[str, str] = {}
+    for key, value in FRONTMATTER_FIELD_RE.findall(match.group(1)):
+        fields[key] = value.strip().strip('"').strip("'")
+    return fields
 
 
 def fail(message: str) -> None:
@@ -18,6 +29,10 @@ def fail(message: str) -> None:
 
 def ok(message: str) -> None:
     print(f"[OK] {message}")
+
+
+def has_markdown_files(path: Path) -> bool:
+    return path.is_dir() and any(child.suffix == ".md" for child in path.iterdir())
 
 
 def check_skill(skill_dir: Path) -> list[str]:
@@ -34,18 +49,28 @@ def check_skill(skill_dir: Path) -> list[str]:
         if not path.is_dir():
             errors.append(f"{name}: missing {dir_name}/")
 
+    for content_dir in ["references", "examples"]:
+        path = skill_dir / content_dir
+        if path.exists() and not has_markdown_files(path):
+            errors.append(f"{name}: {content_dir}/ has no markdown files")
+
     skill_file = skill_dir / "SKILL.md"
     if skill_file.exists():
         text = skill_file.read_text(encoding="utf-8")
-        match = FRONTMATTER_RE.match(text)
-        if not match:
+        frontmatter = parse_frontmatter(text)
+        if frontmatter is None:
             errors.append(f"{name}: missing YAML frontmatter")
         else:
-            frontmatter = match.group(1)
-            if "name:" not in frontmatter:
+            skill_name = frontmatter.get("name")
+            description = frontmatter.get("description")
+            if not skill_name:
                 errors.append(f"{name}: frontmatter missing name")
-            if "description:" not in frontmatter:
+            elif skill_name != name:
+                errors.append(f"{name}: frontmatter name does not match directory")
+            if not description:
                 errors.append(f"{name}: frontmatter missing description")
+            elif len(description) > 220:
+                errors.append(f"{name}: description should stay concise for Claude Web")
         required_sections = [
             "## Purpose",
             "## When to use this skill",
