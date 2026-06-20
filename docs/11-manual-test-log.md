@@ -175,3 +175,36 @@ Issues found:
 Required change:
 
 No immediate change required. `web-project-architect` has passed the minimum pre-packaging Claude Web manual tests.
+
+## Test 005
+
+Skill: `web-premium-design`
+Date: 2026-06-20
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Hola Claude, acabo de añadir la habilidad “web-premium-design”. Quiero que esta landing parezca premium, menos genérica y más convincente visualmente para un gimnasio local. No quiero código todavía, quiero dirección visual, UX, secciones, estilo y criterios para que no parezca una web hecha rápido con IA.
+```
+
+Expected behavior:
+
+The skill should activate and provide premium visual direction, UX guidance, section strategy, anti-generic design criteria and conversion-oriented recommendations. It should not write code and should not turn into a deep security or SEO audit.
+
+Observed behavior:
+
+Claude activated premium-design behavior and produced a visual direction plan for a local gym landing. It focused on making the design feel less generic, identified overuse of dark/cyan visual language as a risk, proposed an editorial dark direction, emphasized real photos and coaches as differentiators, recommended section ordering, CTA hierarchy, typography, spacing, image strategy, trust signals and anti-generic priorities. It did not write HTML, CSS or JavaScript.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+- The response used existing Max Gym context and specific details such as current palette, languages, coaches, schedule and WhatsApp. This is useful in the user's current Claude context, but future clean-room tests should verify the skill does not invent project-specific facts when that context is absent.
+- The response briefly mentioned privacy/CSP, but it remained secondary and did not become a security audit.
+
+Required change:
+
+No immediate change required. Continue with a non-activation test for `web-premium-design` before merging this manual test pass.
