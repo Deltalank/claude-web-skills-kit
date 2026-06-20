@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 This project uses semantic versioning for public behavior of skills.
 
+## [0.1.4] - 2026-06-20
+
+### Added
+
+- Added `web-testing-checklist` skill.
+- Added testing baseline, critical user paths, responsive matrix, report format and client handoff references.
+- Added website validation examples and activation tests.
+- Updated README to include the implemented testing checklist skill.
+
+### Notes
+
+`web-testing-checklist` is experimental and focused on final website validation before publishing or client delivery. It creates a structured checklist and marks manual checks clearly.
+
 ## [0.1.3] - 2026-06-20
 
 ### Added
