@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
 REQUIRED_DIRS = ["references", "examples", "tests"]
 REQUIRED_FILES = ["SKILL.md", "README.md"]
-REQUIRED_TESTS = ["should-trigger.md", "regression-prompts.md"]
+REQUIRED_TESTS = ["should-trigger.md", "should-not-trigger.md", "regression-prompts.md"]
 
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 
