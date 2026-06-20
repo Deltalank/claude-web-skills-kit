@@ -23,3 +23,6 @@ jobs:
 
       - name: Check release consistency
         run: python scripts/check-release-consistency.py
+
+      - name: Check repository hygiene
+        run: python scripts/check-repo-hygiene.py
