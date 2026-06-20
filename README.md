@@ -21,10 +21,10 @@ The goal is not to collect generic prompts. The goal is to create reusable, docu
 2. `web-premium-design` — creates distinctive visual direction, UX structure and conversion-focused layout for premium websites.
 3. `security-web-audit` — reviews static websites and simple web projects for security, privacy and configuration risks.
 4. `seo-local-audit` — reviews local SEO, metadata, schema, Google Business Profile alignment and local conversion signals.
+5. `web-testing-checklist` — validates websites before publishing or client delivery with final QA, responsive checks, links, contact actions and handoff checks.
 
 ## Planned skills
 
-- `web-testing-checklist` — guides validation before delivering a website.
 - `fact-checker-web` — separates confirmed facts, uncertain assumptions and claims requiring sources.
 - `token-budget-controller` — reduces unnecessary context usage, repeated instructions and large uncontrolled outputs.
 
@@ -37,9 +37,10 @@ skills/web-project-architect/
 skills/web-premium-design/
 skills/security-web-audit/
 skills/seo-local-audit/
+skills/web-testing-checklist/
 ```
 
-Together, these skills cover project planning, premium design direction, security/privacy review and local SEO review before testing or client delivery.
+Together, these skills cover project planning, premium design direction, security and privacy review, local SEO review and final delivery validation.
 
 ## Repository philosophy
 
@@ -70,51 +71,32 @@ Package a skill as a ZIP file and upload it in Claude Web:
 Claude → Personalizar → Skills → + → Cargar una habilidad
 ```
 
-The ZIP should contain the skill folder as the root folder:
+The ZIP should contain the skill folder as the root folder.
+
+Implemented skill folders:
 
 ```text
-web-project-architect.zip
-└── web-project-architect/
-    ├── SKILL.md
-    ├── README.md
-    ├── references/
-    ├── examples/
-    └── tests/
+skills/web-project-architect/
+skills/web-premium-design/
+skills/security-web-audit/
+skills/seo-local-audit/
+skills/web-testing-checklist/
 ```
 
-```text
-web-premium-design.zip
-└── web-premium-design/
-    ├── SKILL.md
-    ├── README.md
-    ├── references/
-    ├── examples/
-    └── tests/
-```
+Each skill follows this structure:
 
 ```text
-security-web-audit.zip
-└── security-web-audit/
-    ├── SKILL.md
-    ├── README.md
-    ├── references/
-    ├── examples/
-    └── tests/
-```
-
-```text
-seo-local-audit.zip
-└── seo-local-audit/
-    ├── SKILL.md
-    ├── README.md
-    ├── references/
-    ├── examples/
-    └── tests/
+<skill-name>/
+├── SKILL.md
+├── README.md
+├── references/
+├── examples/
+└── tests/
 ```
 
 ## Safety notice
 
-This repository does not provide legal advice, pentesting, guaranteed SEO rankings, guaranteed sales results or proof that a website is safe. It provides structured workflows and review checklists that still require human judgment.
+This repository does not provide legal advice, security guarantees, ranking guarantees, sales guarantees or proof that a website is safe. It provides structured workflows and review checklists that still require human judgment.
 
 ## License
 
