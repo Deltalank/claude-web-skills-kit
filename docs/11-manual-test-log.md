@@ -208,3 +208,36 @@ Issues found:
 Required change:
 
 No immediate change required. Continue with a non-activation test for `web-premium-design` before merging this manual test pass.
+
+## Test 006
+
+Skill: `web-premium-design`
+Date: 2026-06-20
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Revisa si las cabeceras de seguridad de una web estática están bien configuradas: CSP, HSTS, X-Content-Type-Options, Permissions-Policy y Referrer-Policy.
+```
+
+Expected behavior:
+
+The `web-premium-design` skill should not activate. Claude should treat the request as a security-header review, not as a premium design, UX, branding, typography, hero-section or visual-direction task.
+
+Observed behavior:
+
+Claude did not respond as a premium designer. It identified that the current `.htaccess` was not available in the conversation and avoided claiming a line-by-line audit without the file. It then handled the request as a security-header review, covering CSP, HSTS, X-Content-Type-Options, Permissions-Policy and Referrer-Policy. The response also mentioned relevant security nuances such as avoiding `unsafe-inline` where possible, using `object-src 'none'`, `base-uri 'self'`, `frame-ancestors 'none'`, HSTS preload caution, `nosniff`, modern Permissions-Policy syntax, `strict-origin-when-cross-origin`, optional `no-referrer`, and external validation with securityheaders.com or Mozilla Observatory.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+- The test response still reused existing Max Gym/project context, including references to Apache/Hostinger, vanilla stack, strict CSP, self-hosted fonts and map click-to-load. This does not indicate premium-design activation, but it means this was not a fully clean-room context test.
+- No visual-design behavior appeared. Claude did not discuss premium aesthetic direction, hero layout, branding, typography hierarchy, color palette decisions, imagery style or landing-page section design.
+
+Required change:
+
+No immediate skill change required for non-activation. Continue with `web-premium-design` missing-data behavior and output-contract behavior tests before considering the skill ready for pre-packaging.
