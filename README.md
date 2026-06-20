@@ -4,7 +4,7 @@ Professional Claude Skills kit for web planning, design, SEO, security, testing 
 
 ## Status
 
-Version: `0.1.5`
+Version: `0.1.7`
 Status: `experimental / professional draft`
 Primary language: Spanish
 Target platform: Claude Web first, Claude Code later.
