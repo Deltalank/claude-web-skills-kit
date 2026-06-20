@@ -12,7 +12,7 @@ Last updated: 2026-06-20
 |---|---:|---|---|---|---|---|---|
 | `web-project-architect` | 001-004 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Watch clean-room location assumptions in future tests. |
 | `web-premium-design` | 005-008 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Activation and non-activation tests reused some existing Max Gym context; clean-room retest remains useful later, but no blocking issue was found. |
-| `security-web-audit` | 009 | `PASS` | Not tested | Not tested | Not tested | In progress | Expected activation passed; remaining non-activation, missing-data and output-contract tests pending. |
+| `security-web-audit` | 009-010 | `PASS` | `PASS` | Not tested | Not tested | In progress | Expected activation and non-activation passed; remaining missing-data and output-contract tests pending. |
 | `seo-local-audit` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `web-testing-checklist` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `fact-checker-web` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
@@ -355,3 +355,35 @@ Issues found:
 Required change:
 
 No immediate skill change required. Continue with the `security-web-audit` non-activation, missing-data behavior and output-contract behavior tests before considering this skill ready for its minimum pre-packaging manual-test set.
+
+## Test 010
+
+Skill: `security-web-audit`
+Date: 2026-06-21
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Quiero que esta landing parezca más premium y menos genérica. No quiero auditoría de seguridad ahora. Dame dirección visual, estilo, UX, jerarquía, secciones y criterios para que no parezca una web hecha rápido con IA. No escribas código.
+```
+
+Expected behavior:
+
+The `security-web-audit` skill should not activate. Claude should respect the user's explicit request not to perform a security audit and should respond as a premium visual/UX design task. It should not focus on security headers, CSP, HSTS, secret exposure, XSS, cookies, dependencies, server configuration or vulnerability findings.
+
+Observed behavior:
+
+Claude did not activate security-audit behavior. It explicitly focused on premium landing-page direction and anti-generic design criteria, covering visual style, UX, hierarchy, section logic, CTA discipline, typography, spacing, motion, copy specificity and evaluation criteria. It did not perform a security audit, did not discuss CSP, HSTS, secret exposure, XSS, cookies, dependencies or server configuration, and did not write code.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+None.
+
+Required change:
+
+No immediate skill change required. Continue with the `security-web-audit` missing-data behavior and output-contract behavior tests before considering this skill ready for its minimum pre-packaging manual-test set.
