@@ -73,3 +73,41 @@ Issues found:
 Required change:
 
 No immediate skill change required. Continue testing with a non-activation prompt and a missing-data prompt before packaging.
+
+## Test 002
+
+Skill: `web-project-architect`
+Date: 2026-06-20
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Tradúceme este texto al inglés: quiero entrenar hoy.
+```
+
+Expected behavior:
+
+The skill should not activate. Claude should translate the sentence normally and should not produce a website project plan, intake questions, project phases or confirmed/inferred/missing sections.
+
+Observed behavior:
+
+Claude answered only with the translation:
+
+```text
+"I want to train today."
+```
+
+No website planning behavior appeared.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+None.
+
+Required change:
+
+No change required for this non-activation test.
