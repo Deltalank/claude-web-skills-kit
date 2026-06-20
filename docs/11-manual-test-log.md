@@ -240,7 +240,7 @@ Issues found:
 
 Required change:
 
-No immediate skill change required for non-activation. Continue with `web-premium-design` missing-data behavior and output-contract behavior tests before considering the skill ready for pre-packaging.
+No immediate skill change required for non-activation. Continue with `web-premium-design` missing-data behavior and output-contract behavior tests before considering this skill ready for pre-packaging.
 
 ## Test 007
 
@@ -274,3 +274,35 @@ Issues found:
 Required change:
 
 No immediate skill change required. Continue with the `web-premium-design` output-contract behavior test before considering this skill ready for its minimum pre-packaging manual-test set.
+
+## Test 008
+
+Skill: `web-premium-design`
+Date: 2026-06-20
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Actúa como diseñador premium para landing web. Responde exactamente con estas secciones: Confirmado, Falta por confirmar, Dirección visual, Jerarquía UX, Sistema visual, Anti-genérico, Riesgos visuales, Quality gates y Siguiente acción. No escribas código. No inventes datos.
+```
+
+Expected behavior:
+
+The skill should activate and follow the requested output contract. It should respond using the requested sections, avoid code, avoid invented project details, provide premium visual direction, include UX hierarchy, visual-system guidance, anti-generic criteria, visual risks, quality gates and a clear next action. It should not switch into SEO, security or general project-architecture mode.
+
+Observed behavior:
+
+Claude followed the requested output structure with the sections Confirmado, Falta por confirmar, Dirección visual, Jerarquía UX, Sistema visual, Anti-genérico, Riesgos visuales, Quality gates and Siguiente acción. It stated that no brand, sector, photos, colors, audience, objective or copy were confirmed, and it listed missing inputs without inventing them. It provided a premium visual direction based on editorial restraint, white space, typographic hierarchy, high contrast, one restrained accent and non-decorative decisions. It included UX hierarchy, anti-generic criteria, visual risks, quality gates and a focused next action. It did not write code and did not switch into security, SEO or architecture.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+None.
+
+Required change:
+
+No immediate skill change required. `web-premium-design` has now passed the minimum pre-packaging Claude Web manual tests: expected activation, non-activation, missing-data behavior and output-contract behavior.
