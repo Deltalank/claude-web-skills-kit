@@ -6,13 +6,13 @@ Use this file to record Claude Web tests before packaging any ZIP files.
 
 ## Manual test coverage summary
 
-Last updated: 2026-06-20
+Last updated: 2026-06-21
 
 | Skill | Test IDs | Expected activation | Non-activation | Missing-data behavior | Output-contract behavior | Overall status | Notes |
 |---|---:|---|---|---|---|---|---|
 | `web-project-architect` | 001-004 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Watch clean-room location assumptions in future tests. |
 | `web-premium-design` | 005-008 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Activation and non-activation tests reused some existing Max Gym context; clean-room retest remains useful later, but no blocking issue was found. |
-| `security-web-audit` | 009-010 | `PASS` | `PASS` | Not tested | Not tested | In progress | Expected activation and non-activation passed; remaining missing-data and output-contract tests pending. |
+| `security-web-audit` | 009-011 | `PASS` | `PASS` | `PASS` | Not tested | In progress | Expected activation, non-activation and missing-data behavior passed; output-contract test pending. |
 | `seo-local-audit` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `web-testing-checklist` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `fact-checker-web` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
@@ -387,3 +387,35 @@ None.
 Required change:
 
 No immediate skill change required. Continue with the `security-web-audit` missing-data behavior and output-contract behavior tests before considering this skill ready for its minimum pre-packaging manual-test set.
+
+## Test 011
+
+Skill: `security-web-audit`
+Date: 2026-06-21
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Quiero auditar la seguridad de una web estática, pero todavía no tengo URL, hosting, .htaccess, HTML, CSS, JavaScript, formularios, cookies, dependencias ni páginas legales. No inventes hallazgos. Dame una auditoría segura de missing-data: qué puedes evaluar sin archivos, qué queda bloqueado, qué archivos necesitas, qué riesgos solo puedes marcar como pendientes y qué checklist usarías antes de publicar. No escribas configuración final todavía.
+```
+
+Expected behavior:
+
+The skill should activate as a security audit with missing-data discipline. It should avoid invented findings, state that no concrete vulnerabilities are confirmed, explain what can be evaluated without files, what remains blocked, which files and deployment details are needed, which risks can only be marked as pending verification, and provide a pre-publication checklist. It should not write final security configuration or claim that the site is secure.
+
+Observed behavior:
+
+Claude activated security-audit behavior and explicitly stated that no files meant no confirmed findings. It answered the requested missing-data structure by explaining that only process, method, risk model, severity criteria, review order and post-deployment verification planning can be evaluated without files. It separated blocked items into file-dependent facts and deployment-dependent checks such as real headers, TLS validity, HTTP-to-HTTPS redirects and browser CSP behavior. It listed priority inputs including `README.md`, `index.html`, CSS/JS, `.htaccess`, legal pages, `robots.txt`, `sitemap.xml`, contact/form scripts, dependency files, host, domain and HTTPS status. It marked risk categories as pending verification rather than findings, including client-side secrets, sensitive files, third-party/CDN use, forms, cookies/analytics, security headers, CSP, HTTPS/HSTS and dependencies with possible CVEs. It provided a pre-publication checklist covering secrets, transport, server/headers, HTML/JS, third parties, forms/privacy and closure steps, and it avoided final configuration.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+None.
+
+Required change:
+
+No immediate skill change required. Continue with the `security-web-audit` output-contract behavior test before considering this skill ready for its minimum pre-packaging manual-test set.
