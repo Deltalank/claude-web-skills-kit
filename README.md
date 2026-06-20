@@ -20,10 +20,10 @@ The goal is not to collect generic prompts. The goal is to create reusable, docu
 1. `web-project-architect` — plans professional website projects before design, code, SEO, security or delivery.
 2. `web-premium-design` — creates distinctive visual direction, UX structure and conversion-focused layout for premium websites.
 3. `security-web-audit` — reviews static websites and simple web projects for security, privacy and configuration risks.
+4. `seo-local-audit` — reviews local SEO, metadata, schema, Google Business Profile alignment and local conversion signals.
 
 ## Planned skills
 
-- `seo-local-audit` — reviews local SEO, metadata, schema and local conversion signals.
 - `web-testing-checklist` — guides validation before delivering a website.
 - `fact-checker-web` — separates confirmed facts, uncertain assumptions and claims requiring sources.
 - `token-budget-controller` — reduces unnecessary context usage, repeated instructions and large uncontrolled outputs.
@@ -36,9 +36,10 @@ Implemented skills:
 skills/web-project-architect/
 skills/web-premium-design/
 skills/security-web-audit/
+skills/seo-local-audit/
 ```
 
-Together, these skills cover project planning, premium design direction and security/privacy review before SEO, testing or client delivery.
+Together, these skills cover project planning, premium design direction, security/privacy review and local SEO review before testing or client delivery.
 
 ## Repository philosophy
 
@@ -94,6 +95,16 @@ web-premium-design.zip
 ```text
 security-web-audit.zip
 └── security-web-audit/
+    ├── SKILL.md
+    ├── README.md
+    ├── references/
+    ├── examples/
+    └── tests/
+```
+
+```text
+seo-local-audit.zip
+└── seo-local-audit/
     ├── SKILL.md
     ├── README.md
     ├── references/
