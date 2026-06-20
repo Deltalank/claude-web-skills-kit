@@ -12,7 +12,7 @@ Last updated: 2026-06-21
 |---|---:|---|---|---|---|---|---|
 | `web-project-architect` | 001-004 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Watch clean-room location assumptions in future tests. |
 | `web-premium-design` | 005-008 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Activation and non-activation tests reused some existing Max Gym context; clean-room retest remains useful later, but no blocking issue was found. |
-| `security-web-audit` | 009-011 | `PASS` | `PASS` | `PASS` | Not tested | In progress | Expected activation, non-activation and missing-data behavior passed; output-contract test pending. |
+| `security-web-audit` | 009-012 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | All required security-audit manual tests passed. Do not package until release checks also pass. |
 | `seo-local-audit` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `web-testing-checklist` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `fact-checker-web` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
@@ -419,3 +419,35 @@ None.
 Required change:
 
 No immediate skill change required. Continue with the `security-web-audit` output-contract behavior test before considering this skill ready for its minimum pre-packaging manual-test set.
+
+## Test 012
+
+Skill: `security-web-audit`
+Date: 2026-06-21
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Actúa como auditor de seguridad web para una web estática. Responde exactamente con estas secciones: Confirmado, No confirmado, Alcance, Riesgos por severidad, Pendiente de archivos, Pendiente de despliegue, Checklist de verificación, Limitaciones, Recomendación final y Siguiente acción. No inventes hallazgos. No escribas configuración final ni código.
+```
+
+Expected behavior:
+
+The skill should activate and follow the requested output contract. It should use the requested sections, avoid invented findings, avoid final security configuration or code, clearly separate confirmed and unconfirmed information, state the audit scope, keep severity findings empty or pending when no files are provided, distinguish file-dependent and deployment-dependent checks, include a verification checklist, document limitations, and give a safe recommendation and next action.
+
+Observed behavior:
+
+Claude followed the requested output structure with the sections Confirmado, No confirmado, Alcance, Riesgos por severidad, Pendiente de archivos, Pendiente de despliegue, Checklist de verificación, Limitaciones, Recomendación final and Siguiente acción. It stated that no URL, hosting, `.htaccess`, HTML, CSS, JavaScript, forms, cookies, dependencies or legal pages had been provided, and therefore zero findings were confirmed. It kept concrete site details as unconfirmed, described the audit scope as a pre-file and pre-deployment static-web risk audit, left the severity table empty instead of inventing findings, separated file-dependent checks from deployment-dependent checks, provided a verification checklist, documented limitations, avoided code and final configuration, and recommended keeping the site as pending review until files and deployment checks are completed.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+None.
+
+Required change:
+
+No immediate skill change required. `security-web-audit` has now passed the minimum pre-packaging Claude Web manual tests: expected activation, non-activation, missing-data behavior and output-contract behavior.
