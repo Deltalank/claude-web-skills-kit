@@ -241,3 +241,36 @@ Issues found:
 Required change:
 
 No immediate skill change required for non-activation. Continue with `web-premium-design` missing-data behavior and output-contract behavior tests before considering the skill ready for pre-packaging.
+
+## Test 007
+
+Skill: `web-premium-design`
+Date: 2026-06-20
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Quiero mejorar visualmente una landing para que parezca premium, pero todavía no tengo marca, sector, fotos, colores, público objetivo ni contenido real. No inventes datos. Dame una dirección visual segura usando placeholders y dime qué queda bloqueado hasta confirmar información.
+```
+
+Expected behavior:
+
+The skill should activate as premium-design guidance while avoiding invented business, brand or audience details. It should use placeholders, explain what can be decided safely without data, list what remains blocked until confirmation, and avoid producing a full implementation or switching into SEO, security or project-architecture mode.
+
+Observed behavior:
+
+Claude activated premium-design behavior and explicitly stated that no brand, sector, photos, colors, audience or copy were confirmed. It avoided inventing concrete project details, used placeholders such as `[PROPUESTA DE VALOR]`, `[BENEFICIO PRINCIPAL]`, `[ACCIÓN]`, `[DESTINO CTA]`, `[SERVICIO 1/2/3]`, `[RAZÓN 1/2/3]`, `[ZONA DE CONFIANZA]`, `[DATOS NEGOCIO]`, `[LEGAL]` and `[CONTACTO]`, and clearly listed what remained blocked until confirmation. It proposed a safe neutral premium direction based on white space, typographic hierarchy, a restrained palette, real grid alignment, a single CTA, placeholder image ratios and honest proof/social-trust handling. It did not invent testimonials, ratings, sector-specific claims, brand colors or final fonts.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+- Claude included a small CSS token snippet for placeholder variables. This does not count as a full implementation and did not violate the test objective, but future output-contract tests should verify that the skill respects a strict "no code" instruction when requested.
+- Claude inferred that the project may be a local business based on user context, but explicitly marked it as a supposition and did not treat it as confirmed.
+
+Required change:
+
+No immediate skill change required. Continue with the `web-premium-design` output-contract behavior test before considering this skill ready for its minimum pre-packaging manual-test set.
