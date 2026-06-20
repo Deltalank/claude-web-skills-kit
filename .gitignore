@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Generated packages
+# Keep dist tracked only when explicitly releasing ZIPs.
+dist/*.zip
+
+# Local audit outputs can be committed selectively.
