@@ -143,3 +143,35 @@ Issues found:
 Required change:
 
 No immediate change required. Continue with output-contract behavior test before packaging.
+
+## Test 004
+
+Skill: `web-project-architect`
+Date: 2026-06-20
+Tester: Deltalank
+Claude surface: Claude Web
+Prompt:
+
+```text
+Actúa como arquitecto de proyecto web. Hazme un plan en formato profesional para una web de negocio local, separando Confirmado, Inferido, Falta por confirmar, Riesgos, Fases, Archivos necesarios, Quality gates y Siguiente acción. No escribas código todavía.
+```
+
+Expected behavior:
+
+The skill should activate and follow the requested output structure. It should include confirmed facts, inferred assumptions, missing data, risks, phases, required files, quality gates and next action. It should not write HTML, CSS or JavaScript.
+
+Observed behavior:
+
+Claude produced a professional project plan with the requested sections: Confirmado, Inferido, Falta por confirmar, Riesgos, Fases, Archivos necesarios, Quality gates and Siguiente acción. It did not write code. It used placeholders for missing business data, warned against invented content, identified the business type as the main blocking field, and provided a phase table with gates.
+
+Result:
+
+`PASS`
+
+Issues found:
+
+- Minor note: the response again inferred Spain/Canarias and RGPD/LOPDGDD. This remains acceptable for this user context, but future clean-room tests should confirm whether the skill behaves equally well without user-location context.
+
+Required change:
+
+No immediate change required. `web-project-architect` has passed the minimum pre-packaging Claude Web manual tests.
