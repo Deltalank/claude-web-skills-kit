@@ -4,6 +4,22 @@ Status: active
 
 Use this file to record Claude Web tests before packaging any ZIP files.
 
+## Manual test coverage summary
+
+Last updated: 2026-06-20
+
+| Skill | Test IDs | Expected activation | Non-activation | Missing-data behavior | Output-contract behavior | Overall status | Notes |
+|---|---:|---|---|---|---|---|---|
+| `web-project-architect` | 001-004 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Watch clean-room location assumptions in future tests. |
+| `web-premium-design` | 005-008 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Activation and non-activation tests reused some existing Max Gym context; clean-room retest remains useful later, but no blocking issue was found. |
+| `security-web-audit` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
+| `seo-local-audit` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
+| `web-testing-checklist` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
+| `fact-checker-web` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
+| `token-budget-controller` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
+
+Do not mark a skill as ready for ZIP packaging until its four minimum Claude Web manual tests are recorded as passing or any issues are fixed and retested.
+
 ## Test result labels
 
 - `PASS`
