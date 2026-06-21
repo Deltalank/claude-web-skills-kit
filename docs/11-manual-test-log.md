@@ -13,7 +13,7 @@ Last updated: 2026-06-21
 | `web-project-architect` | 001-004 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Watch clean-room location assumptions in future tests. |
 | `web-premium-design` | 005-008 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | Activation and non-activation tests reused some existing Max Gym context; clean-room retest remains useful later, but no blocking issue was found. |
 | `security-web-audit` | 009-012 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | All required security-audit manual tests passed. Do not package until release checks also pass. |
-| `seo-local-audit` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
+| `seo-local-audit` | 013-016 | `PASS` | `PASS` | `PASS` | `PASS` | Minimum pre-packaging set complete | All required local SEO manual tests passed. Do not package until release checks also pass. |
 | `web-testing-checklist` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `fact-checker-web` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
 | `token-budget-controller` | Not started | Not tested | Not tested | Not tested | Not tested | Pending | No Claude Web manual tests recorded yet. |
